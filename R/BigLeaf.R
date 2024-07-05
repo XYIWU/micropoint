@@ -205,7 +205,8 @@
   phih[phih<0.75]<-0.75
   # ** G
   RnetG<-RabsG-5.67*10^-8*vegp$em*(weather$temp+273.15)^4 # deliberately capped at weather temp
-  GG<-with(groundp,GFlux(Tg,soilm,rho,Vm,Vq,Mc,RnetG,bigleafp$Gmax,bigleafp$Gmin,i,yearG))
+  # GG<-with(groundp,GFlux(Tg,soilm,rho,Vm,Vq,Mc,RnetG,bigleafp$Gmax,bigleafp$Gmin,i,yearG))
+  GG<-GFlux(Tg,soilm,groundp$rho,groundp$Vm,groundp$Vq,groundp$Mc,RnetG,bigleafp$Gmax,bigleafp$Gmin,i,yearG)
   # Assign values to bigelafp
   bigleafp<-list(psih=psih,psim=psim,H=H,G=GG$G,tcc=tcc,tcg=tcg,Tc=Tc,Tg=Tg,phih=phih,
                  RnetG=RnetG,LL=LL,uf=uf,RabsG=RabsG,Gmax=GG$Gmax,Gmin=GG$Gmin)
