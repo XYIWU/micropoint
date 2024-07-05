@@ -6,3 +6,5 @@
 install.packages("remotes")
 remotes::install_github("XYIWU/micropoint")
 
+###
+Maintainer: Ilya M. D. Maclean
